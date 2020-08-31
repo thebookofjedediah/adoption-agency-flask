@@ -4,25 +4,21 @@
 <h1>Add a Pet!</h1>
 
 <form action="/add", method="POST" class="container">
-    <div class="form-group">
-        <input type="text" name="name" placeholder="name">
-    </div>
-    
-    <div class="form-group">
-        <input type="text" name="species" placeholder="species">
-    </div>
+    {{ form.hidden_tag() }}
+    {% for field in form
+        if field.widget.input_type != 'hidden' %}
 
-    <div class="form-group">
-        <input type="text" name="photo_url" placeholder="photo URL">
-    </div>
+        <div class="form-group">
+            {{ field.label }}
+            {{ field }}
 
-    <div class="form-group">
-        <input type="number" name="age" placeholder="age">
-    </div>
-     
-    <div class="form-group">
-        <textarea type="text" name="notes" placeholder="notes"></textarea>
-    </div>
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+
     <button class="btn btn-success">Add Pet!</button>
     <a href="/" class="btn btn-danger">Go Back</a>
 </form>
