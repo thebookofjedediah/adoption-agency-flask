@@ -13,9 +13,11 @@
     <li>ID: {{pet.id}}</li>
     <li>Name: {{pet.name}}</li>
     <li>Species: {{pet.species}}</li>
-    <li>Available: {{pet.available}}</li>
+    <li>Available?: {{pet.available}}</li>
+    <li>Notes: {{pet.notes}}</li>
 </ul>
 
-<a href="/">Go Back</a>
+<a class="btn btn-sm btn-warning" href="/{{pet.id}}/edit">Edit</a>
+<a class="btn btn-sm btn-danger" href="/">Go Back</a>
 
 {% endblock %}
