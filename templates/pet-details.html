@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% block title %} {{pet.name}} details {% endblock %}
 {% block content %}
+
 <h1>{{pet.name}}</h1>
+
+    {% if pet.photo_url %}
+        <img class="pet-image" src="{{pet.photo_url}}" alt="pet photo">
+    {% else %}
+        <img class="pet-image" src="https://cleargov-common.s3.amazonaws.com/img/avatars/noavatar.png" alt="pet photo">
+    {% endif %}
 <ul>
     <li>ID: {{pet.id}}</li>
     <li>Name: {{pet.name}}</li>
