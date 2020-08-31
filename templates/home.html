@@ -6,4 +6,15 @@
     Welcome
 </p>
 
+<ul>
+    {% for pet in pets %}
+    <li>
+        <a href="/{{pet.id}}">{{pet.name}}</a>
+        {% if pet.available %}
+        <b>I am available!</b>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
 {% endblock %}
